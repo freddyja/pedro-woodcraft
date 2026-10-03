@@ -1,13 +1,973 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="refresh" content="0; url=https://computingmadeeasy.org/pedro-woodcraft/">
-<link rel="canonical" href="https://computingmadeeasy.org/pedro-woodcraft/">
-<title>Moved</title>
-<script>location.replace("https://computingmadeeasy.org/pedro-woodcraft/");</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Pedro's Cuban Woodcraft</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&family=Dancing+Script:wght@700&display=swap');
+
+:root {
+  --mahogany:#6B2D0F; --tobacco:#8B4513; --gold:#C8963E; --gold-light:#E8B86D;
+  --cream:#FAF3E0; --ivory:#F5ECD7; --dark:#1A0A00; --charcoal:#2C1810;
+  --red:#C8102E; --white:#FFFFFF; --shadow:rgba(26,10,0,0.2);
+  --green:#25D366;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Lato',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden;}
+
+/* ── LANG BAR ── */
+.lang-bar{
+  background:var(--dark);border-bottom:1px solid rgba(200,150,62,0.2);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:8px clamp(12px,4vw,48px);flex-wrap:wrap;gap:8px;
+}
+.lang-bar .contact-mini{color:rgba(250,243,224,0.55);font-size:0.78rem;display:flex;gap:16px;align-items:center;}
+.lang-bar .contact-mini a{color:var(--gold);text-decoration:none;}
+.lang-btns{display:flex;gap:6px;}
+.lang-btn{
+  padding:5px 12px;border:1px solid rgba(200,150,62,0.25);border-radius:50px;
+  background:transparent;color:rgba(250,243,224,0.55);font-size:0.78rem;font-weight:700;
+  cursor:pointer;transition:all 0.2s;white-space:nowrap;
+}
+.lang-btn:hover{border-color:var(--gold);color:var(--gold-light);}
+.lang-btn.active{background:var(--gold);border-color:var(--gold);color:var(--dark);}
+
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:var(--charcoal);border-bottom:3px solid var(--gold);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 clamp(12px,4vw,48px);height:62px;
+  box-shadow:0 2px 20px var(--shadow);
+}
+.nav-brand{font-family:'Dancing Script',cursive;font-size:1.65rem;color:var(--gold-light);}
+.nav-cart{
+  background:var(--gold);color:var(--dark);border:none;border-radius:50px;
+  padding:8px 20px;font-weight:700;font-size:0.85rem;cursor:pointer;
+  display:flex;align-items:center;gap:8px;transition:background 0.2s;
+}
+.nav-cart:hover{background:var(--gold-light);}
+.cart-count{
+  background:var(--red);color:#fff;border-radius:50%;
+  width:20px;height:20px;display:flex;align-items:center;justify-content:center;
+  font-size:0.7rem;font-weight:700;
+}
+
+/* ── PROMO BANNER ── */
+.promo-banner{
+  background:linear-gradient(135deg,var(--red),#9A0020);
+  color:#fff;text-align:center;
+  padding:10px 20px;font-weight:700;font-size:0.9rem;letter-spacing:0.05em;
+}
+
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(160deg,var(--charcoal) 0%,var(--mahogany) 55%,#3D1A05 100%);
+  padding:clamp(48px,8vw,100px) clamp(16px,4vw,80px);
+  text-align:center;position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+  opacity:0.5;pointer-events:none;
+}
+.hero-badge{
+  display:inline-block;background:var(--red);color:#fff;
+  font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;
+  padding:5px 18px;border-radius:2px;margin-bottom:20px;position:relative;
+}
+.hero h1{
+  font-family:'Dancing Script',cursive;
+  font-size:clamp(2.8rem,7vw,5.5rem);color:var(--gold-light);
+  line-height:1;position:relative;margin-bottom:8px;
+}
+.hero-sub{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(0.9rem,2vw,1.2rem);color:var(--ivory);
+  letter-spacing:0.12em;text-transform:uppercase;opacity:0.8;position:relative;
+}
+.hero-div{
+  display:flex;align-items:center;gap:14px;
+  width:min(380px,85%);margin:24px auto;position:relative;
+}
+.hero-div::before,.hero-div::after{
+  content:'';flex:1;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold-light),transparent);
+}
+.hero-div span{color:var(--gold);font-size:1.2rem;}
+.hero-desc{
+  font-size:1rem;color:rgba(250,243,224,0.75);
+  max-width:480px;margin:0 auto 32px;line-height:1.7;position:relative;padding:0 16px;
+}
+.hero-cta{
+  display:inline-block;
+  background:linear-gradient(135deg,var(--gold),var(--gold-light));
+  color:var(--charcoal);font-weight:700;font-size:1rem;
+  letter-spacing:0.08em;text-transform:uppercase;
+  padding:15px 40px;border-radius:4px;text-decoration:none;
+  box-shadow:0 8px 28px rgba(200,150,62,0.4);transition:transform 0.2s;
+  position:relative;
+}
+.hero-cta:hover{transform:translateY(-2px);}
+
+/* ── BUILDER SECTION ── */
+#builder{padding:60px clamp(12px,4vw,80px);background:var(--cream);}
+.section-label{font-size:0.72rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--red);margin-bottom:8px;}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);color:var(--charcoal);margin-bottom:12px;}
+.section-desc{font-size:1rem;color:#5A3820;line-height:1.7;max-width:580px;margin-bottom:40px;}
+
+/* Steps */
+.steps-wrapper{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:900px;}
+@media(max-width:680px){.steps-wrapper{grid-template-columns:1fr;}}
+
+.step-card{
+  background:var(--white);border-radius:10px;
+  border:1px solid rgba(200,150,62,0.18);
+  box-shadow:0 3px 16px var(--shadow);overflow:hidden;
+}
+.step-header{
+  background:linear-gradient(135deg,var(--charcoal),var(--mahogany));
+  padding:14px 20px;display:flex;align-items:center;gap:12px;
+}
+.step-num{
+  width:28px;height:28px;border-radius:50%;
+  background:var(--gold);color:var(--dark);
+  font-weight:700;font-size:0.85rem;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.step-title{font-family:'Playfair Display',serif;font-size:1rem;color:var(--gold-light);}
+.step-body{padding:18px 20px;}
+
+/* Product selector */
+.product-btns{display:flex;flex-direction:column;gap:10px;}
+.product-btn{
+  padding:13px 16px;border-radius:6px;border:2px solid rgba(107,45,15,0.2);
+  background:var(--ivory);cursor:pointer;text-align:left;
+  transition:all 0.2s;display:flex;justify-content:space-between;align-items:center;
+}
+.product-btn:hover{border-color:var(--gold);background:rgba(200,150,62,0.06);}
+.product-btn.selected{background:var(--mahogany);border-color:var(--mahogany);color:#fff;}
+.product-btn.selected .pb-price{color:var(--gold-light);}
+.pb-name{font-weight:700;font-size:0.9rem;}
+.pb-cat{font-size:0.75rem;opacity:0.65;margin-top:2px;}
+.pb-price{font-family:'Playfair Display',serif;font-size:1rem;color:var(--mahogany);font-weight:700;flex-shrink:0;}
+
+/* Option pills */
+.opt-grid{display:flex;flex-wrap:wrap;gap:8px;}
+.opt-pill{
+  padding:8px 15px;border:2px solid rgba(107,45,15,0.2);
+  border-radius:50px;font-size:0.82rem;font-weight:700;
+  color:var(--tobacco);cursor:pointer;transition:all 0.2s;
+  background:var(--ivory);user-select:none;
+}
+.opt-pill:hover{border-color:var(--gold);color:var(--mahogany);}
+.opt-pill.selected{background:var(--mahogany);color:var(--gold-light);border-color:var(--mahogany);}
+
+/* Qty */
+.qty-row{display:flex;align-items:center;gap:14px;margin-top:4px;}
+.qty-btn{
+  width:36px;height:36px;border-radius:50%;
+  border:2px solid var(--mahogany);background:transparent;color:var(--mahogany);
+  font-size:1.1rem;font-weight:700;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:all 0.15s;
+}
+.qty-btn:hover{background:var(--mahogany);color:var(--gold-light);}
+.qty-val{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--charcoal);min-width:24px;text-align:center;}
+
+/* Notes */
+.notes-ta{
+  width:100%;padding:11px 14px;border:2px solid rgba(107,45,15,0.2);
+  border-radius:6px;font-family:'Lato',sans-serif;font-size:0.88rem;
+  background:var(--ivory);resize:vertical;min-height:70px;
+  color:var(--dark);transition:border-color 0.2s;
+}
+.notes-ta:focus{outline:none;border-color:var(--gold);}
+
+/* Price display */
+.price-display{
+  background:linear-gradient(135deg,var(--charcoal),var(--mahogany));
+  border-radius:8px;padding:18px 20px;
+  display:flex;align-items:center;justify-content:space-between;
+  margin-top:4px;
+}
+.price-label{color:rgba(250,243,224,0.7);font-size:0.82rem;}
+.price-amount{font-family:'Playfair Display',serif;font-size:2rem;color:var(--gold-light);}
+
+.btn-add{
+  width:100%;margin-top:14px;
+  background:linear-gradient(135deg,var(--gold),var(--gold-light));
+  color:var(--charcoal);border:none;border-radius:6px;
+  padding:15px;font-weight:700;font-size:1rem;letter-spacing:0.06em;
+  text-transform:uppercase;cursor:pointer;
+  box-shadow:0 4px 18px rgba(200,150,62,0.35);transition:transform 0.2s;
+}
+.btn-add:hover{transform:translateY(-2px);}
+
+/* ── CART SECTION ── */
+#cart-section{
+  background:var(--ivory);border-top:3px solid var(--gold);
+  padding:40px clamp(12px,4vw,80px);display:none;
+}
+#cart-section.visible{display:block;}
+.cart-title{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--charcoal);margin-bottom:20px;}
+
+.cart-item-row{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:12px;
+  padding:14px 0;border-bottom:1px solid rgba(200,150,62,0.2);
+}
+.ci-left{}
+.ci-name{font-family:'Playfair Display',serif;font-size:1rem;color:var(--charcoal);}
+.ci-opts{font-size:0.8rem;color:#9A6040;margin:4px 0 8px;}
+.ci-qty-row{display:flex;align-items:center;gap:10px;}
+.ci-qty-btn{
+  width:26px;height:26px;border-radius:50%;
+  border:1.5px solid var(--tobacco);background:transparent;color:var(--tobacco);
+  font-size:0.9rem;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:all 0.15s;
+}
+.ci-qty-btn:hover{background:var(--tobacco);color:#fff;}
+.ci-qty{font-size:0.9rem;font-weight:700;}
+.ci-remove{background:transparent;border:none;cursor:pointer;color:#C8102E;font-size:0.8rem;font-weight:700;padding:4px 8px;border-radius:4px;}
+.ci-remove:hover{background:rgba(200,16,46,0.1);}
+.ci-price{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--mahogany);font-weight:700;flex-shrink:0;}
+
+.cart-total-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:16px 0;margin-top:4px;
+}
+.cart-total-label{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--charcoal);}
+.cart-total-val{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--mahogany);}
+
+/* ── CHECKOUT FORM ── */
+.checkout-form{margin-top:24px;}
+.cf-title{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--charcoal);margin-bottom:16px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
+.form-row.full{grid-template-columns:1fr;}
+.form-group{display:flex;flex-direction:column;gap:5px;}
+.form-group label{font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--tobacco);}
+.form-group input,.form-group select,.form-group textarea{
+  padding:10px 13px;border:2px solid rgba(107,45,15,0.2);border-radius:6px;
+  font-family:'Lato',sans-serif;font-size:0.9rem;color:var(--dark);
+  background:var(--white);transition:border-color 0.2s;
+}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{
+  outline:none;border-color:var(--gold);
+}
+@media(max-width:560px){.form-row{grid-template-columns:1fr;}}
+
+/* Delivery toggle */
+.delivery-toggle{display:flex;gap:10px;margin-bottom:16px;}
+.dtog{
+  flex:1;padding:13px;border:2px solid rgba(107,45,15,0.2);
+  border-radius:8px;cursor:pointer;text-align:center;
+  transition:all 0.2s;background:var(--white);
+}
+.dtog.selected{border-color:var(--mahogany);background:rgba(107,45,15,0.05);}
+.dtog .di{font-size:1.5rem;margin-bottom:4px;}
+.dtog .dn{font-weight:700;font-size:0.85rem;color:var(--charcoal);}
+.dtog .ds{font-size:0.75rem;color:#9A6040;margin-top:2px;}
+
+/* WhatsApp btn */
+.btn-whatsapp{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;padding:16px;border-radius:8px;border:none;
+  background:var(--green);color:#fff;
+  font-weight:700;font-size:1.05rem;letter-spacing:0.06em;
+  text-transform:uppercase;cursor:pointer;
+  box-shadow:0 4px 20px rgba(37,211,102,0.4);
+  transition:transform 0.2s,box-shadow 0.2s;
+  margin-top:6px;text-decoration:none;
+}
+.btn-whatsapp:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,211,102,0.5);}
+.btn-whatsapp svg{width:24px;height:24px;flex-shrink:0;}
+.btn-phone{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  width:100%;padding:13px;border-radius:8px;
+  border:2px solid var(--tobacco);background:transparent;
+  color:var(--tobacco);font-weight:700;font-size:0.95rem;
+  cursor:pointer;transition:all 0.2s;margin-top:10px;text-decoration:none;
+}
+.btn-phone:hover{background:var(--tobacco);color:#fff;}
+
+/* ── ABOUT STRIP ── */
+.about-strip{
+  background:var(--charcoal);border-top:3px solid var(--gold);
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+}
+.about-item{
+  padding:32px 24px;text-align:center;
+  border-right:1px solid rgba(200,150,62,0.15);
+}
+.about-item:last-child{border-right:none;}
+.about-icon{font-size:2.2rem;margin-bottom:10px;}
+.about-item h3{font-family:'Playfair Display',serif;font-size:1rem;color:var(--gold-light);margin-bottom:6px;}
+.about-item p{font-size:0.82rem;color:rgba(250,243,224,0.6);line-height:1.6;}
+
+/* ── CONTACT ── */
+#contact{background:var(--charcoal);padding:60px clamp(12px,4vw,80px);}
+#contact .section-title{color:var(--gold-light);}
+#contact .section-label{color:var(--red);}
+#contact .section-desc{color:rgba(250,243,224,0.65);}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;}
+.contact-card{
+  background:rgba(255,255,255,0.05);border:1px solid rgba(200,150,62,0.2);
+  border-radius:8px;padding:26px 20px;text-align:center;
+}
+.contact-card .cc-i{font-size:1.9rem;margin-bottom:10px;}
+.contact-card h4{font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--gold-light);margin-bottom:6px;}
+.contact-card p{font-size:0.85rem;color:rgba(250,243,224,0.6);line-height:1.6;}
+.contact-card a{color:var(--gold);text-decoration:none;}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--dark);border-top:1px solid rgba(200,150,62,0.1);
+  padding:24px clamp(12px,4vw,80px);
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+}
+.footer-brand{font-family:'Dancing Script',cursive;font-size:1.4rem;color:var(--gold-light);}
+footer p{font-size:0.75rem;color:rgba(250,243,224,0.3);}
+
+/* Toast */
+.toast{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);
+  background:var(--charcoal);color:var(--gold-light);
+  padding:12px 26px;border-radius:50px;
+  font-weight:700;font-size:0.88rem;
+  box-shadow:0 8px 30px rgba(26,10,0,0.4);
+  transition:transform 0.35s cubic-bezier(.34,1.56,.64,1);
+  z-index:999;white-space:nowrap;border:1px solid rgba(200,150,62,0.3);
+}
+.toast.show{transform:translateX(-50%) translateY(0);}
+
+/* Empty cart state */
+.cart-empty-state{
+  text-align:center;padding:32px 0;color:#9A6040;
+  font-family:'Playfair Display',serif;font-size:1rem;
+}
+.cart-empty-state span{display:block;font-size:2.8rem;margin-bottom:12px;}
+
+/* Divider */
+.or-divider{
+  display:flex;align-items:center;gap:12px;margin:12px 0;
+  color:#9A6040;font-size:0.8rem;font-weight:700;letter-spacing:0.1em;
+}
+.or-divider::before,.or-divider::after{content:'';flex:1;height:1px;background:rgba(107,45,15,0.2);}
+</style>
 </head>
 <body>
-<p>This page has moved to <a href="https://computingmadeeasy.org/pedro-woodcraft/">https://computingmadeeasy.org/pedro-woodcraft/</a>.</p>
+
+<!-- LANGUAGE BAR -->
+<div class="lang-bar">
+  <div class="contact-mini">
+    <span>📞 <a href="tel:3525401001">(352) 540-1001</a></span>
+    <span>📍 Brooksville, FL</span>
+  </div>
+  <div class="lang-btns">
+    <button class="lang-btn active" onclick="setLang('en')">🇺🇸 English</button>
+    <button class="lang-btn" onclick="setLang('es')">🇪🇸 Español</button>
+    <button class="lang-btn" onclick="setLang('pt')">🇧🇷 Português</button>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">Pedro's Cuban Woodcraft</div>
+  <button class="nav-cart" onclick="scrollToCart()">
+    🛒 <span data-t="cart">Cart</span>
+    <div class="cart-count" id="cartCount">0</div>
+  </button>
+</nav>
+
+<!-- PROMO BANNER -->
+<div class="promo-banner" id="promoBanner">
+  🪵 Free delivery within 10 miles of Brooksville · Custom sizes available · Call to discuss!
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge" data-t="heroBadge">✦ Handcrafted in Brooksville, Florida ✦</div>
+  <h1>Pedro's Cuban Woodcraft</h1>
+  <div class="hero-sub" data-t="heroSub">Master Carpenter · Rockers & Tables</div>
+  <div class="hero-div"><span>✦</span></div>
+  <p class="hero-desc" data-t="heroDesc">
+    Hecho a mano con amor — Crafted by hand with love. Each piece is built to order by master carpenter Pedro Fernandez, blending Cuban heritage with timeless woodworking.
+  </p>
+  <a class="hero-cta" href="#builder" data-t="heroCta">Order Your Piece</a>
+</div>
+
+<!-- ABOUT STRIP -->
+<div class="about-strip">
+  <div class="about-item"><div class="about-icon">🪵</div><h3 data-t="a1h">Premium Hardwood</h3><p data-t="a1p">Solid woods selected for durability, beauty and character.</p></div>
+  <div class="about-item"><div class="about-icon">🛠️</div><h3 data-t="a2h">Hand-Built to Order</h3><p data-t="a2p">Every piece crafted by Pedro himself. No shortcuts.</p></div>
+  <div class="about-item"><div class="about-icon">🇨🇺</div><h3 data-t="a3h">Cuban Heritage</h3><p data-t="a3p">Rooted in Cuban woodworking tradition, built in Florida.</p></div>
+  <div class="about-item"><div class="about-icon">🚚</div><h3 data-t="a4h">Local Delivery</h3><p data-t="a4p">Serving Brooksville and Central Florida communities.</p></div>
+</div>
+
+<!-- BUILDER -->
+<section id="builder">
+  <div class="section-label" data-t="buildLabel">✦ Order Online</div>
+  <div class="section-title" data-t="buildTitle">Build Your Piece</div>
+  <p class="section-desc" data-t="buildDesc">Select your product and customize every detail. We'll confirm your order via WhatsApp.</p>
+
+  <div class="steps-wrapper">
+
+    <!-- STEP 1: PRODUCT -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">1</div>
+        <div class="step-title" data-t="step1">Choose a Product</div>
+      </div>
+      <div class="step-body">
+        <div class="product-btns" id="productBtns"></div>
+      </div>
+    </div>
+
+    <!-- STEP 2: WOOD -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">2</div>
+        <div class="step-title" data-t="step2">🌳 Wood Species</div>
+      </div>
+      <div class="step-body">
+        <div class="opt-grid" id="woodPills"></div>
+      </div>
+    </div>
+
+    <!-- STEP 3: FINISH -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">3</div>
+        <div class="step-title" data-t="step3">✨ Finish</div>
+      </div>
+      <div class="step-body">
+        <div class="opt-grid" id="finishPills"></div>
+      </div>
+    </div>
+
+    <!-- STEP 4: SIZE + QTY + NOTES + PRICE -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">4</div>
+        <div class="step-title" data-t="step4">📐 Size & Quantity</div>
+      </div>
+      <div class="step-body">
+        <div style="margin-bottom:16px;">
+          <div style="font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--tobacco);margin-bottom:8px;" data-t="sizeLabel">Size</div>
+          <div class="opt-grid" id="sizePills"></div>
+        </div>
+        <div style="margin-bottom:16px;">
+          <div style="font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--tobacco);margin-bottom:8px;" data-t="qtyLabel">Quantity</div>
+          <div class="qty-row">
+            <button class="qty-btn" onclick="changeQty(-1)">−</button>
+            <div class="qty-val" id="qtyVal">1</div>
+            <button class="qty-btn" onclick="changeQty(1)">+</button>
+          </div>
+        </div>
+        <div style="margin-bottom:16px;">
+          <div style="font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--tobacco);margin-bottom:8px;" data-t="notesLabel">Special Instructions</div>
+          <textarea class="notes-ta" id="itemNotes" data-placeholder-t="notesPlaceholder"></textarea>
+        </div>
+        <div class="price-display">
+          <div>
+            <div class="price-label" data-t="priceLabel">Your Total</div>
+          </div>
+          <div class="price-amount" id="priceDisplay">$0</div>
+        </div>
+        <button class="btn-add" onclick="addToCart()" data-t="addBtn">+ Add to Cart</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CART SECTION -->
+<section id="cart-section">
+  <div class="cart-title">🛒 <span data-t="yourOrder">Your Order</span></div>
+  <div id="cartItems"></div>
+  <div class="cart-total-row">
+    <div class="cart-total-label" data-t="total">Total</div>
+    <div class="cart-total-val" id="cartTotalVal">$0</div>
+  </div>
+
+  <!-- CHECKOUT FORM -->
+  <div class="checkout-form">
+    <div class="cf-title" data-t="yourInfo">Your Information</div>
+
+    <div class="delivery-toggle" id="deliveryToggle">
+      <div class="dtog selected" onclick="setDelivery(this,'pickup')">
+        <div class="di">🏠</div>
+        <div class="dn" data-t="pickup">Pickup</div>
+        <div class="ds" data-t="pickupSub">Brooksville, FL</div>
+      </div>
+      <div class="dtog" onclick="setDelivery(this,'delivery')">
+        <div class="di">🚚</div>
+        <div class="dn" data-t="delivery">Local Delivery</div>
+        <div class="ds" data-t="deliverySub">+$50 fee</div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label data-t="firstName">First Name</label>
+        <input type="text" id="fName" data-placeholder-t="firstNamePh"/>
+      </div>
+      <div class="form-group">
+        <label data-t="lastName">Last Name</label>
+        <input type="text" id="lName" data-placeholder-t="lastNamePh"/>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label data-t="phone">Phone</label>
+        <input type="tel" id="cPhone" placeholder="(352) 555-0100"/>
+      </div>
+      <div class="form-group">
+        <label data-t="email">Email (optional)</label>
+        <input type="email" id="cEmail" placeholder="you@email.com"/>
+      </div>
+    </div>
+    <div class="form-row full" id="addressRow" style="display:none">
+      <div class="form-group">
+        <label data-t="address">Delivery Address</label>
+        <input type="text" id="cAddress" data-placeholder-t="addressPh"/>
+      </div>
+    </div>
+    <div class="form-row full">
+      <div class="form-group">
+        <label data-t="orderNote">Order Note (optional)</label>
+        <textarea style="padding:10px 13px;border:2px solid rgba(107,45,15,0.2);border-radius:6px;font-family:'Lato',sans-serif;font-size:0.88rem;background:var(--white);resize:vertical;min-height:60px;" id="orderNote" data-placeholder-t="orderNotePh"></textarea>
+      </div>
+    </div>
+
+    <a class="btn-whatsapp" id="waBtn" href="#" onclick="return sendWhatsApp()">
+      <svg viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 3C9.37 3 4 8.37 4 15c0 2.64.79 5.1 2.17 7.14L4 29l7.12-2.12A12.93 12.93 0 0016 28c6.63 0 12-5.37 12-12S22.63 3 16 3zm0 22c-2.2 0-4.27-.62-6.02-1.69l-.43-.26-4.46 1.33 1.29-4.53-.28-.45A10 10 0 016 15c0-5.52 4.48-10 10-10s10 4.48 10 10-4.48 10-10 10zm5.51-7.13c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.66.15-.2.3-.76.97-.93 1.17-.17.2-.34.22-.64.07-.3-.15-1.27-.47-2.41-1.5-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.34.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.91-2.19-.24-.57-.48-.5-.66-.5h-.56c-.2 0-.52.07-.79.37-.27.3-1.03 1-1.03 2.44s1.05 2.83 1.2 3.03c.15.2 2.07 3.15 5.01 4.42.7.3 1.24.48 1.67.61.7.22 1.33.19 1.83.12.56-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.34z"/>
+      </svg>
+      <span data-t="waBtn">Order via WhatsApp</span>
+    </a>
+    <div class="or-divider"><span data-t="orCall">or call directly</span></div>
+    <a class="btn-phone" href="tel:3525401001">📞 (352) 540-1001 — Pedro Fernandez</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">✦ <span data-t="contactLabel">Get in Touch</span></div>
+  <div class="section-title" data-t="contactTitle">Visit or Call Pedro</div>
+  <p class="section-desc" data-t="contactDesc">Questions? Want to see a piece in person? Reach out — Pedro is happy to talk shop.</p>
+  <div class="contact-grid">
+    <div class="contact-card"><div class="cc-i">📞</div><h4 data-t="phoneLabel">Phone</h4><p><a href="tel:3525401001">(352) 540-1001</a></p></div>
+    <div class="contact-card"><div class="cc-i">💬</div><h4>WhatsApp</h4><p><a href="https://wa.me/13525401001" target="_blank">wa.me/13525401001</a></p></div>
+    <div class="contact-card"><div class="cc-i">📍</div><h4 data-t="locationLabel">Location</h4><p>15294 Taralane Avenue<br>Brooksville, FL 34604</p></div>
+    <div class="contact-card"><div class="cc-i">🕐</div><h4 data-t="hoursLabel">Hours</h4><p data-t="hoursVal">Mon – Sat · 8am – 6pm</p></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">Pedro's Cuban Woodcraft</div>
+  <p>© 2024 Pedro Fernandez · Brooksville, FL · <span data-t="footerTag">Handcrafted with Cuban pride</span></p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ════════════════════════════════
+//  TRANSLATIONS
+// ════════════════════════════════
+const T = {
+  en:{
+    cart:'Cart', heroBadge:'✦ Handcrafted in Brooksville, Florida ✦',
+    heroSub:'Master Carpenter · Rockers & Tables',
+    heroDesc:'Hecho a mano con amor — Crafted by hand with love. Each piece built to order by master carpenter Pedro Fernandez, blending Cuban heritage with timeless woodworking.',
+    heroCta:'Order Your Piece',
+    a1h:'Premium Hardwood',a1p:'Solid woods selected for durability, beauty and character.',
+    a2h:'Hand-Built to Order',a2p:'Every piece crafted by Pedro himself. No shortcuts.',
+    a3h:'Cuban Heritage',a3p:'Rooted in Cuban woodworking tradition, built in Florida.',
+    a4h:'Local Delivery',a4p:'Serving Brooksville and Central Florida communities.',
+    buildLabel:'✦ Order Online', buildTitle:'Build Your Piece',
+    buildDesc:'Select your product and customize every detail. We\'ll confirm your order via WhatsApp.',
+    step1:'Choose a Product',step2:'🌳 Wood Species',step3:'✨ Finish',step4:'📐 Size & Quantity',
+    sizeLabel:'Size',qtyLabel:'Quantity',notesLabel:'Special Instructions',
+    notesPlaceholder:'Engravings, special dimensions, color notes…',
+    priceLabel:'Your Total',addBtn:'+ Add to Cart',
+    yourOrder:'Your Order',total:'Total',yourInfo:'Your Information',
+    pickup:'Pickup',pickupSub:'Brooksville, FL',delivery:'Local Delivery',deliverySub:'+$50 fee',
+    firstName:'First Name',firstNamePh:'Maria',lastName:'Last Name',lastNamePh:'Garcia',
+    phone:'Phone',email:'Email (optional)',address:'Delivery Address',
+    addressPh:'123 Main St, Brooksville, FL',
+    orderNote:'Order Note (optional)',orderNotePh:'Any additional details for Pedro…',
+    waBtn:'Order via WhatsApp',orCall:'or call directly',
+    contactLabel:'Get in Touch',contactTitle:'Visit or Call Pedro',
+    contactDesc:'Questions? Want to see a piece in person? Reach out — Pedro is happy to talk shop.',
+    phoneLabel:'Phone',locationLabel:'Location',hoursLabel:'Hours',hoursVal:'Mon – Sat · 8am – 6pm',
+    footerTag:'Handcrafted with Cuban pride',
+    promoBanner:'🪵 Free delivery within 10 miles of Brooksville · Custom sizes available · Call to discuss!',
+  },
+  es:{
+    cart:'Carrito', heroBadge:'✦ Hecho a mano en Brooksville, Florida ✦',
+    heroSub:'Maestro Carpintero · Mecedoras y Mesas',
+    heroDesc:'Hecho a mano con amor — Cada pieza es construida a pedido por el maestro carpintero Pedro Fernandez, fusionando la herencia cubana con la carpintería tradicional.',
+    heroCta:'Ordena Tu Pieza',
+    a1h:'Madera Premium',a1p:'Maderas sólidas seleccionadas por durabilidad y belleza.',
+    a2h:'Hecho a Pedido',a2p:'Cada pieza fabricada por el propio Pedro. Sin atajos.',
+    a3h:'Herencia Cubana',a3p:'Arraigado en la tradición carpintera cubana, construido en Florida.',
+    a4h:'Entrega Local',a4p:'Servimos a Brooksville y las comunidades del centro de Florida.',
+    buildLabel:'✦ Ordena en Línea', buildTitle:'Diseña Tu Pieza',
+    buildDesc:'Selecciona tu producto y personaliza cada detalle. Confirmamos tu pedido por WhatsApp.',
+    step1:'Elige un Producto',step2:'🌳 Especie de Madera',step3:'✨ Acabado',step4:'📐 Tamaño y Cantidad',
+    sizeLabel:'Tamaño',qtyLabel:'Cantidad',notesLabel:'Instrucciones Especiales',
+    notesPlaceholder:'Grabados, dimensiones especiales, notas de color…',
+    priceLabel:'Tu Total',addBtn:'+ Agregar al Carrito',
+    yourOrder:'Tu Pedido',total:'Total',yourInfo:'Tu Información',
+    pickup:'Recogida',pickupSub:'Brooksville, FL',delivery:'Entrega Local',deliverySub:'+$50',
+    firstName:'Nombre',firstNamePh:'María',lastName:'Apellido',lastNamePh:'García',
+    phone:'Teléfono',email:'Correo (opcional)',address:'Dirección de Entrega',
+    addressPh:'123 Calle Principal, Brooksville, FL',
+    orderNote:'Nota del Pedido (opcional)',orderNotePh:'Detalles adicionales para Pedro…',
+    waBtn:'Ordenar por WhatsApp',orCall:'o llama directamente',
+    contactLabel:'Contáctanos',contactTitle:'Visita o Llama a Pedro',
+    contactDesc:'¿Preguntas? ¿Quieres ver una pieza en persona? Pedro estará encantado de atenderte.',
+    phoneLabel:'Teléfono',locationLabel:'Ubicación',hoursLabel:'Horario',hoursVal:'Lun – Sáb · 8am – 6pm',
+    footerTag:'Hecho a mano con orgullo cubano',
+    promoBanner:'🪵 Entrega gratis dentro de 10 millas de Brooksville · Tamaños personalizados disponibles · ¡Llama para más info!',
+  },
+  pt:{
+    cart:'Carrinho', heroBadge:'✦ Artesanal em Brooksville, Florida ✦',
+    heroSub:'Mestre Carpinteiro · Cadeiras de Balanço e Mesas',
+    heroDesc:'Feito à mão com amor — Cada peça é construída sob encomenda pelo mestre carpinteiro Pedro Fernandez, unindo herança cubana com marcenaria atemporal.',
+    heroCta:'Peça Sua Peça',
+    a1h:'Madeira Premium',a1p:'Madeiras sólidas selecionadas por durabilidade e beleza.',
+    a2h:'Feito Sob Encomenda',a2p:'Cada peça fabricada pelo próprio Pedro. Sem atalhos.',
+    a3h:'Herança Cubana',a3p:'Enraizado na tradição cubana de marcenaria, construído na Flórida.',
+    a4h:'Entrega Local',a4p:'Atendemos Brooksville e as comunidades da Flórida Central.',
+    buildLabel:'✦ Peça Online', buildTitle:'Crie Sua Peça',
+    buildDesc:'Selecione seu produto e personalize cada detalhe. Confirmamos seu pedido pelo WhatsApp.',
+    step1:'Escolha um Produto',step2:'🌳 Espécie de Madeira',step3:'✨ Acabamento',step4:'📐 Tamanho e Quantidade',
+    sizeLabel:'Tamanho',qtyLabel:'Quantidade',notesLabel:'Instruções Especiais',
+    notesPlaceholder:'Gravações, dimensões especiais, notas de cor…',
+    priceLabel:'Seu Total',addBtn:'+ Adicionar ao Carrinho',
+    yourOrder:'Seu Pedido',total:'Total',yourInfo:'Suas Informações',
+    pickup:'Retirada',pickupSub:'Brooksville, FL',delivery:'Entrega Local',deliverySub:'+$50',
+    firstName:'Nome',firstNamePh:'Maria',lastName:'Sobrenome',lastNamePh:'Garcia',
+    phone:'Telefone',email:'E-mail (opcional)',address:'Endereço de Entrega',
+    addressPh:'123 Rua Principal, Brooksville, FL',
+    orderNote:'Observação do Pedido (opcional)',orderNotePh:'Detalhes adicionais para Pedro…',
+    waBtn:'Pedir pelo WhatsApp',orCall:'ou ligue diretamente',
+    contactLabel:'Entre em Contato',contactTitle:'Visite ou Ligue para Pedro',
+    contactDesc:'Dúvidas? Quer ver uma peça pessoalmente? Pedro terá prazer em atendê-lo.',
+    phoneLabel:'Telefone',locationLabel:'Localização',hoursLabel:'Horário',hoursVal:'Seg – Sáb · 8h – 18h',
+    footerTag:'Feito à mão com orgulho cubano',
+    promoBanner:'🪵 Entrega grátis em até 10 milhas de Brooksville · Tamanhos personalizados disponíveis · Ligue para saber mais!',
+  }
+};
+
+// Product data with multilingual names/descriptions
+const PRODUCTS_DATA = {
+  en:[
+    {id:'rocker-classic',  name:'Cuban Rocker — Classic',     cat:'Rocking Chair', base:350, icon:'🪑'},
+    {id:'rocker-highback', name:'Cuban Rocker — High Back',   cat:'Rocking Chair', base:420, icon:'🪑'},
+    {id:'rocker-outdoor',  name:'Outdoor Porch Rocker',       cat:'Rocking Chair', base:390, icon:'🪑'},
+    {id:'table-dining',    name:'Solid Wood Dining Table',    cat:'Table',         base:680, icon:'🪵'},
+    {id:'table-coffee',    name:'Cuban Coffee Table',         cat:'Table',         base:380, icon:'🪵'},
+    {id:'table-side',      name:'Handcrafted Side Table',     cat:'Table',         base:220, icon:'🪵'},
+  ],
+  es:[
+    {id:'rocker-classic',  name:'Mecedora Cubana — Clásica',       cat:'Mecedora',  base:350, icon:'🪑'},
+    {id:'rocker-highback', name:'Mecedora Cubana — Respaldo Alto',  cat:'Mecedora',  base:420, icon:'🪑'},
+    {id:'rocker-outdoor',  name:'Mecedora para Porche',             cat:'Mecedora',  base:390, icon:'🪑'},
+    {id:'table-dining',    name:'Mesa de Comedor de Madera Sólida', cat:'Mesa',      base:680, icon:'🪵'},
+    {id:'table-coffee',    name:'Mesa de Centro Cubana',            cat:'Mesa',      base:380, icon:'🪵'},
+    {id:'table-side',      name:'Mesa Auxiliar Artesanal',          cat:'Mesa',      base:220, icon:'🪵'},
+  ],
+  pt:[
+    {id:'rocker-classic',  name:'Cadeira de Balanço Cubana — Clássica',         cat:'Cadeira de Balanço', base:350, icon:'🪑'},
+    {id:'rocker-highback', name:'Cadeira de Balanço Cubana — Encosto Alto',     cat:'Cadeira de Balanço', base:420, icon:'🪑'},
+    {id:'rocker-outdoor',  name:'Cadeira de Balanço para Varanda',              cat:'Cadeira de Balanço', base:390, icon:'🪑'},
+    {id:'table-dining',    name:'Mesa de Jantar em Madeira Maciça',             cat:'Mesa',               base:680, icon:'🪵'},
+    {id:'table-coffee',    name:'Mesa de Centro Cubana',                        cat:'Mesa',               base:380, icon:'🪵'},
+    {id:'table-side',      name:'Mesa Lateral Artesanal',                       cat:'Mesa',               base:220, icon:'🪵'},
+  ]
+};
+
+const WOODS = {
+  en:[{n:'Cedarwood',e:0},{n:'Mahogany',e:80},{n:'Teak',e:120},{n:'Oak',e:60},{n:'Cherry',e:90}],
+  es:[{n:'Cedro',e:0},{n:'Caoba',e:80},{n:'Teca',e:120},{n:'Roble',e:60},{n:'Cerezo',e:90}],
+  pt:[{n:'Cedro',e:0},{n:'Mogno',e:80},{n:'Teca',e:120},{n:'Carvalho',e:60},{n:'Cerejeira',e:90}],
+};
+const FINISHES = {
+  en:[{n:'Natural Oil',e:0},{n:'Walnut Stain',e:20},{n:'Dark Espresso',e:20},{n:'Honey Glaze',e:25},{n:'Custom Color',e:40}],
+  es:[{n:'Aceite Natural',e:0},{n:'Tinte Nogal',e:20},{n:'Espresso Oscuro',e:20},{n:'Glaseado Miel',e:25},{n:'Color Personalizado',e:40}],
+  pt:[{n:'Óleo Natural',e:0},{n:'Verniz Nogueira',e:20},{n:'Espresso Escuro',e:20},{n:'Esmalte Mel',e:25},{n:'Cor Personalizada',e:40}],
+};
+const SIZES = {
+  en:[{n:'Standard',e:0},{n:'Wide (+4")',e:50},{n:'Tall (+3")',e:50},{n:'XL (+6")',e:90}],
+  es:[{n:'Estándar',e:0},{n:'Ancho (+4")',e:50},{n:'Alto (+3")',e:50},{n:'XL (+6")',e:90}],
+  pt:[{n:'Padrão',e:0},{n:'Largo (+4")',e:50},{n:'Alto (+3")',e:50},{n:'XL (+6")',e:90}],
+};
+
+// ════════════════════════════════
+//  STATE
+// ════════════════════════════════
+let lang = 'en';
+let selProduct = 0;
+let selWood = 0;
+let selFinish = 0;
+let selSize = 0;
+let qty = 1;
+let cart = [];
+let deliveryMode = 'pickup';
+
+// ════════════════════════════════
+//  LANGUAGE
+// ════════════════════════════════
+function setLang(l){
+  lang = l;
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelector(`.lang-btn[onclick="setLang('${l}')"]`).classList.add('active');
+  applyTranslations();
+  buildProductBtns();
+  buildPills();
+}
+
+function applyTranslations(){
+  const t = T[lang];
+  document.querySelectorAll('[data-t]').forEach(el=>{
+    const key = el.dataset.t;
+    if(t[key] !== undefined) el.textContent = t[key];
+  });
+  document.querySelectorAll('[data-placeholder-t]').forEach(el=>{
+    const key = el.dataset['placeholder-t'] || el.dataset.placeholderT;
+    if(t[key] !== undefined) el.placeholder = t[key];
+  });
+  document.getElementById('promoBanner').textContent = t.promoBanner;
+  updatePrice();
+}
+
+// ════════════════════════════════
+//  BUILD UI
+// ════════════════════════════════
+function buildProductBtns(){
+  const prods = PRODUCTS_DATA[lang];
+  const c = document.getElementById('productBtns');
+  c.innerHTML = prods.map((p,i)=>`
+    <button class="product-btn${i===selProduct?' selected':''}" onclick="selectProduct(${i})">
+      <div>
+        <div class="pb-name">${p.icon} ${p.name}</div>
+        <div class="pb-cat">${p.cat}</div>
+      </div>
+      <div class="pb-price">$${p.base.toLocaleString()}<span style="font-size:0.7rem;font-weight:400;color:inherit;opacity:0.7">+</span></div>
+    </button>
+  `).join('');
+}
+
+function buildPills(){
+  renderPillGroup('woodPills', WOODS[lang], selWood, 'wood');
+  renderPillGroup('finishPills', FINISHES[lang], selFinish, 'finish');
+  renderPillGroup('sizePills', SIZES[lang], selSize, 'size');
+}
+
+function renderPillGroup(id, items, selectedIdx, type){
+  const c = document.getElementById(id);
+  c.innerHTML = items.map((item,i)=>`
+    <div class="opt-pill${i===selectedIdx?' selected':''}" onclick="selectPill('${type}',${i})">
+      ${item.n}${item.e>0?' (+$'+item.e+')':''}
+    </div>
+  `).join('');
+}
+
+function selectProduct(i){
+  selProduct = i;
+  buildProductBtns();
+  updatePrice();
+}
+
+function selectPill(type, i){
+  if(type==='wood') selWood=i;
+  else if(type==='finish') selFinish=i;
+  else selSize=i;
+  buildPills();
+  updatePrice();
+}
+
+function changeQty(d){
+  qty = Math.max(1, qty+d);
+  document.getElementById('qtyVal').textContent = qty;
+  updatePrice();
+}
+
+function calcPrice(){
+  const p = PRODUCTS_DATA[lang][selProduct];
+  let price = p.base;
+  price += WOODS[lang][selWood].e;
+  price += FINISHES[lang][selFinish].e;
+  price += SIZES[lang][selSize].e;
+  return price * qty;
+}
+
+function updatePrice(){
+  document.getElementById('priceDisplay').textContent = '$' + calcPrice().toLocaleString();
+}
+
+// ════════════════════════════════
+//  CART
+// ════════════════════════════════
+function addToCart(){
+  const p = PRODUCTS_DATA[lang][selProduct];
+  const unitPrice = calcPrice()/qty;
+  cart.push({
+    id: Date.now(),
+    name: p.icon + ' ' + p.name,
+    wood: WOODS[lang][selWood].n,
+    finish: FINISHES[lang][selFinish].n,
+    size: SIZES[lang][selSize].n,
+    qty, unitPrice,
+    notes: document.getElementById('itemNotes').value
+  });
+  renderCart();
+  showToast('✦ Added to cart!');
+  document.getElementById('itemNotes').value = '';
+  qty = 1;
+  document.getElementById('qtyVal').textContent = 1;
+  updatePrice();
+}
+
+function renderCart(){
+  const section = document.getElementById('cart-section');
+  const el = document.getElementById('cartItems');
+  const total = cart.reduce((a,i)=>a+i.unitPrice*i.qty,0);
+  const badgeDelivery = deliveryMode==='delivery'?50:0;
+  const grandTotal = total + badgeDelivery;
+
+  document.getElementById('cartCount').textContent = cart.reduce((a,i)=>a+i.qty,0);
+
+  if(cart.length===0){
+    el.innerHTML = `<div class="cart-empty-state"><span>🪑</span><span data-t="cartEmpty">Your cart is empty. Choose a piece above!</span></div>`;
+    section.classList.remove('visible');
+    return;
+  }
+  section.classList.add('visible');
+
+  el.innerHTML = cart.map(item=>`
+    <div class="cart-item-row">
+      <div class="ci-left">
+        <div class="ci-name">${item.name}</div>
+        <div class="ci-opts">${item.wood} · ${item.finish} · ${item.size}${item.notes?` · "${item.notes}"`:''}
+        </div>
+        <div class="ci-qty-row">
+          <button class="ci-qty-btn" onclick="cartQty(${item.id},-1)">−</button>
+          <div class="ci-qty">${item.qty}</div>
+          <button class="ci-qty-btn" onclick="cartQty(${item.id},1)">+</button>
+          <button class="ci-remove" onclick="removeItem(${item.id})">✕ Remove</button>
+        </div>
+      </div>
+      <div class="ci-price">$${(item.unitPrice*item.qty).toLocaleString()}</div>
+    </div>
+  `).join('');
+
+  if(deliveryMode==='delivery'){
+    el.innerHTML += `<div class="cart-item-row"><div class="ci-left"><div class="ci-name">🚚 Local Delivery</div></div><div class="ci-price">$50</div></div>`;
+  }
+
+  document.getElementById('cartTotalVal').textContent = '$' + grandTotal.toLocaleString();
+}
+
+function cartQty(id,d){
+  const item = cart.find(i=>i.id===id);
+  if(!item) return;
+  item.qty = Math.max(1,item.qty+d);
+  renderCart();
+}
+
+function removeItem(id){
+  cart = cart.filter(i=>i.id!==id);
+  renderCart();
+}
+
+function scrollToCart(){
+  const s = document.getElementById('cart-section');
+  if(cart.length>0) s.scrollIntoView({behavior:'smooth'});
+  else document.getElementById('builder').scrollIntoView({behavior:'smooth'});
+}
+
+// ════════════════════════════════
+//  DELIVERY
+// ════════════════════════════════
+function setDelivery(el,mode){
+  deliveryMode = mode;
+  document.querySelectorAll('.dtog').forEach(d=>d.classList.remove('selected'));
+  el.classList.add('selected');
+  document.getElementById('addressRow').style.display = mode==='delivery'?'grid':'none';
+  renderCart();
+}
+
+// ════════════════════════════════
+//  WHATSAPP ORDER
+// ════════════════════════════════
+function sendWhatsApp(){
+  const fn = document.getElementById('fName').value.trim();
+  const ph = document.getElementById('cPhone').value.trim();
+  if(!fn){showToast('⚠ Please enter your name.');return false;}
+  if(cart.length===0){showToast('⚠ Add at least one item to your cart.');return false;}
+
+  const t = T[lang];
+  const ln = document.getElementById('lName').value.trim();
+  const em = document.getElementById('cEmail').value.trim();
+  const addr = document.getElementById('cAddress').value.trim();
+  const note = document.getElementById('orderNote').value.trim();
+
+  const deliveryLine = deliveryMode==='delivery'
+    ? `🚚 ${t.delivery}: ${addr||'(address needed)'}\n`
+    : `🏠 ${t.pickup}: Brooksville, FL\n`;
+
+  const itemLines = cart.map(i=>
+    `  • ${i.name}\n    ${i.wood} · ${i.finish} · ${i.size} × ${i.qty}  →  $${(i.unitPrice*i.qty).toLocaleString()}${i.notes?`\n    📝 ${i.notes}`:''}`
+  ).join('\n');
+
+  const delFee = deliveryMode==='delivery'?50:0;
+  const grand = cart.reduce((a,i)=>a+i.unitPrice*i.qty,0)+delFee;
+
+  const msg = [
+    `🪵 *Pedro's Cuban Woodcraft — New Order* 🪵`,
+    ``,
+    `👤 *${t.firstName}:* ${fn} ${ln}`,
+    ph?`📞 *${t.phone}:* ${ph}`:'',
+    em?`📧 Email: ${em}`:'',
+    ``,
+    deliveryLine,
+    `*Order:*`,
+    itemLines,
+    ``,
+    deliveryMode==='delivery'?`🚚 Delivery: +$50`:'',
+    `*TOTAL: $${grand.toLocaleString()}*`,
+    note?`\n📝 Note: ${note}`:'',
+    ``,
+    `_Sent via Pedro's Cuban Woodcraft website_`
+  ].filter(l=>l!==undefined&&l!==null).join('\n');
+
+  const url = 'https://wa.me/13525401001?text='+encodeURIComponent(msg);
+  window.open(url,'_blank');
+  return false;
+}
+
+// ════════════════════════════════
+//  TOAST
+// ════════════════════════════════
+let toastTimer;
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove('show'),2800);
+}
+
+// ════════════════════════════════
+//  INIT
+// ════════════════════════════════
+buildProductBtns();
+buildPills();
+applyTranslations();
+</script>
 </body>
 </html>
